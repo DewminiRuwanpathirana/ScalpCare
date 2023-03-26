@@ -157,3 +157,24 @@ preds = model.predict(img)
 # Print the predicted class label
 class_label = np.argmax(preds)
 print('Predicted class label:', class_label)
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Load the pre-trained CNN model
+model = load_model('SCmodel.h5')
+
+# Load the test image
+img = cv2.imread('/content/drive/MyDrive/DataSet/val/Head Lice/head_lice_0001.jpg')
+
+# Preprocess the image
+img = cv2.resize(img, (224, 224))
+img = np.expand_dims(img, axis=0)
+img = img / 255.0
+
+# Make predictions on the test image
+preds = model.predict(img)
+
+# Print the predicted class label
+class_label = np.argmax(preds)
+print('Predicted class label:', class_label)

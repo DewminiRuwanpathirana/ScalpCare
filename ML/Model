@@ -161,7 +161,7 @@ print('Predicted class label:', class_label)
 from google.colab import drive
 drive.mount('/content/drive')
 
-# Load the pre-trained CNN model
+## Load the pre-trained CNN model
 model = load_model('SCmodel.h5')
 
 # Load the test image

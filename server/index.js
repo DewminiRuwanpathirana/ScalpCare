@@ -39,3 +39,30 @@ app.post('/api/register', (req, res) => {
     [name, email, password],
   );
 });
+
+// API route for authenticating a user
+app.post('/api/login', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");  
+    const { email, password } = req.body;
+  connection.query(
+    'SELECT * FROM databasesc WHERE email = ? AND password = ?',
+    [email, password],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send('Error authenticating user');
+      } else if (results.length === 0) {
+        res.status(401).send('Invalid email or password');
+      } else {
+        res.status(200).send('User authenticated successfully');
+      }
+    }
+  );
+});
+
+app.use(cors({
+    origin: "*"
+}));
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

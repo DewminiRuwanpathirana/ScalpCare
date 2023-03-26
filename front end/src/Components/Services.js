@@ -1,3 +1,4 @@
+//Services Page//
 import React, { useState } from 'react';
 import './Project.css';
 import Project1 from './Images/identify_disease.png';
@@ -16,6 +17,7 @@ function Project () {
             <div className="container">
                 <div className="row">
 
+                    //services 1//
                     <div className="col_3">
                         <div className="project_box pointer relative">
                             <div className="project_box_img">
@@ -31,6 +33,7 @@ function Project () {
                     </div>
                 </div>
 
+                //services 2//
                 <div className="col_3">
                         <div className="project_box pointer relative">
                             <div className="project_box_img">
@@ -46,6 +49,7 @@ function Project () {
                     </div>
                 </div>
 
+                //services 3//
                 <div className="col_3">
                         <div className="project_box pointer relative">
                             <div className="project_box_img">

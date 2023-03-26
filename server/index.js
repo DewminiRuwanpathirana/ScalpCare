@@ -20,6 +20,14 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log('MySQL Connected!');
+  (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send('Error registering new user');
+      } else {
+        res.status(200).send('New user registered successfully');
+      }
+    }
 });
 
 // API route for registering a new user

@@ -1,38 +1,43 @@
-import React, { useState } from "react";
-import "./UploadImage.css";
-import upload from './Images/upload.png';
-import axios from 'axios';
+import React, { useState } from "react";     
+import "./UploadImage.css";                   // importing the CSS file.
+import upload from './Images/upload.png';     // import image for upload button
+import axios from 'axios';                    // import axios library for HTTP requests
 
-const UploadImage = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+// Creating a new function called UploadImage.
+const UploadImage = () => {                  
+  const [selectedFile, setSelectedFile] = useState(null);   
   const [prediction, setPrediction] = useState(null);
 
-  const handleFileSelect = (event) => {
+  // function to handle file selection.
+  const handleFileSelect = (event) => {  
     setSelectedFile(event.target.files[0]);
     setPrediction(null);
   };
   
+  // function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedFile) return;
   
+    // create form data object
     const formData = new FormData();
     console.log(selectedFile)
     formData.append("image", selectedFile);
   
     try {
       // const response = await axios.post("http://172.27.24.181:5000/predict", formData);
-      const response = await axios({
+      // send POST request to server
+      const response = await axios({      
         method:"post",
         url:"http://127.0.0.1:5000/predict",
         data: formData,
         headers: {'Content-Type': 'multipart/form-data', 'Content-Disposition': 'attachment'}
       }).then((res) =>{return res});
 
-      console.log(response.data)
-      setPrediction(response.data);
+      console.log(response.data)       // log prediction result to console
+      setPrediction(response.data);    // update state with prediction result
     } catch (error) {
-      console.error(error);
+      console.error(error);            // log any errors to console
     }
   };
   

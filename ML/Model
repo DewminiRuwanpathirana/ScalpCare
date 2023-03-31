@@ -137,44 +137,45 @@ plt.plot(history.history['val_loss'],color='blue', label = 'val_loss')
 plt.legend()
 plt.show()
 
-from google.colab import drive
-drive.mount('/content/drive')
+class_names = {
+    0: 'Alopecia Areata',
+    1: 'Contact Dermatitis',
+    2: 'Folliculitis',
+    3: 'Head Lice',
+    4: 'Lichen Planus',
+    5: 'Male pattern Baldness',
+    6: 'Psoriasis',
+    7: 'Seborrheic Dermatitis',
+    8: 'Telogen Effluvium',
+    9: 'Tinea Capitis',
+}
+
+from keras import models
+
+# Define image size and batch size
+img_size = (224, 224)
+batch_size = 32
 
 # Load the pre-trained CNN model
-model = load_model('SCmodel.h5')
+model = models.load_model('/content/drive/MyDrive/SCmodel.h5')
 
 # Load the test image
-img = cv2.imread('/content/drive/MyDrive/DataSet/val/Head Lice/head_lice_0001.jpg')
-
-# Preprocess the image
-img = cv2.resize(img, (224, 224))
+img = tf.io.read_file('https://images.ctfassets.net/j6utfne5ne6b/2CymBRddLBVKYWFN8bTTIz/ab36c5e05e74230fb82a9e0b880cc316/Yellow_dandruff_on_scalp.jpg?fm=webp&q=75')
+img = tf.image.decode_image(img, channels=3, expand_animations=False)
+interpolation = "bilinear"
+interpolation = image_utils.get_interpolation(interpolation)
+img = tf.image.resize(img,(224, 224), method=interpolation)
 img = np.expand_dims(img, axis=0)
-img = img / 255.0
+img = img * 1/255.0
 
 # Make predictions on the test image
 preds = model.predict(img)
 
-# Print the predicted class label
+#print the predicted class label
 class_label = np.argmax(preds)
 print('Predicted class label:', class_label)
 
-from google.colab import drive
-drive.mount('/content/drive')
-
-# Load the pre-trained CNN model
-model = load_model('SCmodel.h5')
-
-# Load the test image
-img = cv2.imread('/content/drive/MyDrive/DataSet/val/Head Lice/head_lice_0001.jpg')
-
-# Preprocess the image
-img = cv2.resize(img, (224, 224))
-img = np.expand_dims(img, axis=0)
-img = img / 255.0
-
-# Make predictions on the test image
-preds = model.predict(img)
-
-# Print the predicted class label
-class_label = np.argmax(preds)
-print('Predicted class label:', class_label)
+# Get the predicted class name
+class_name = class_names[class_label]
+print('Predicted class name: ', class_name)
+img.shape

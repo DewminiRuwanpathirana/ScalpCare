@@ -175,7 +175,7 @@ preds = model.predict(img)
 class_label = np.argmax(preds)
 print('Predicted class label:', class_label)
 
-# Get the predicted class name
+# Get the predicted class name.
 class_name = class_names[class_label]
 print('Predicted class name: ', class_name)
 img.shape

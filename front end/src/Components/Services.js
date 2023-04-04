@@ -1,6 +1,6 @@
 //Services Page//
 import React, { useState } from 'react';
-import './Project.css';
+import './Services.css';
 import Project1 from './Images/identify_disease.png';
 import Project2 from './Images/self_treatment.png';
 import Project3 from './Images/dermatologist.png';

@@ -17,7 +17,7 @@ function Project () {
             <div className="container">
                 <div className="row">
 
-                    //services 01//
+                    {/*services 1*/}
                     <div className="col_3">
                         <div className="project_box pointer relative">
                             <div className="project_box_img">
@@ -33,7 +33,7 @@ function Project () {
                     </div>
                 </div>
 
-                //services 02//
+                {/*services 2*/}
                 <div className="col_3">
                         <div className="project_box pointer relative">
                             <div className="project_box_img">
@@ -49,7 +49,7 @@ function Project () {
                     </div>
                 </div>
 
-                //services 03//
+                {/*services 3*/}
                 <div className="col_3">
                         <div className="project_box pointer relative">
                             <div className="project_box_img">

@@ -20,6 +20,14 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log('MySQL Connected!');
+  (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send('Error registering new user');
+      } else {
+        res.status(200).send('New user registered successfully');
+      }
+    }
 });
 
 // API route for registering a new user
@@ -29,14 +37,6 @@ app.post('/api/register', (req, res) => {
   connection.query(
     'INSERT INTO databasesc (name, email, password) VALUES (?, ?, ?)',
     [name, email, password],
-    (err, results) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send('Error registering new user');
-      } else {
-        res.status(200).send('New user registered successfully');
-      }
-    }
   );
 });
 
@@ -64,5 +64,5 @@ app.use(cors({
     origin: "*"
 }));
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });

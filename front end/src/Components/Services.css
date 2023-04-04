@@ -1,3 +1,4 @@
+//Services.css page//
 .project {
     background-color: #191919;
   }
@@ -32,6 +33,8 @@
     opacity: .3;
     display: none;
   }
+
+//hover effect//
   
   .project_box:hover .mask_effect {
     display: inline;

@@ -1,4 +1,4 @@
-//Services.css page//
+/*service page*/
 .project {
     background-color: #191919;
   }
@@ -34,7 +34,7 @@
     display: none;
   }
 
-//hover effect//
+/*hover effect*/
   
   .project_box:hover .mask_effect {
     display: inline;

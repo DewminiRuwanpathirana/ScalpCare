@@ -6,14 +6,14 @@ import LoginRegister from './Components/LoginRegister';
 import UploadImage from './Components/UploadImage';
 import DiseaseDetails from './Components/DiseaseDetails';
 import Doctor from './Components/Doctor';
-// import Services from './Components/Services';
+import Services from './Components/Services';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
   const [showDisease, setShowDisease] = useState(false);
   const [showDoctor, setShowDoctor] = useState(false);
-  // const [showServices, setShowServices] = useState(false);
+  const [showServices, setShowServices] = useState(false);
 
   const toggleLogin = () => {
     setShowLogin(!showLogin);
@@ -27,9 +27,9 @@ function App() {
   const toggleDoctor = () => {
     setShowDoctor(!showDoctor);
   };
-  // const toggleServices = () => {
-  //   setShowServices(!showServices);
-  // };
+  const toggleServices = () => {
+    setShowServices(!showServices);
+  };
 
   return (
     <div className={`root`}>
@@ -44,7 +44,7 @@ function App() {
               <a href="#" className="header-nav-link">ABOUT US</a>
             </li>
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link" /*onClick={toggleServices}*/>SERVICES</a>
+              <a href="#" className="header-nav-link" onClick={toggleServices}>SERVICES</a>
             </li>
             <li className="header-nav-item">
               <a href="#" className="header-nav-link">CONTACT US</a>
@@ -56,7 +56,7 @@ function App() {
         </button>
       </header>
       <main className="main">
-        {!showLogin && !showUpload && !showDisease && !showDoctor && /*!showServices*/ (
+        {!showLogin && !showUpload && !showDisease && !showDoctor && !showServices && (
           <>
             <div className='right-cont'>
               <h1 className='header-title'> ScalpCare </h1>
@@ -97,11 +97,11 @@ function App() {
           <Doctor />
         </div>
       )}
-      {/* {showServices && (
+      {showServices && (
         <div className="login-wrapper">
           <Services />
         </div>
-      )} */}
+      )}
     </div>
   );
 }

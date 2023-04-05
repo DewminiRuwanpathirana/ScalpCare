@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LoginRegister.css";
 import axios from "axios";
+import UploadImage from "./UploadImage";
 
 const LoginRegister = () => {
   const [addclass, setaddclass] = useState("");
@@ -9,10 +10,11 @@ const LoginRegister = () => {
   const [password, setPassword] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/register', {
+    axios.post('http://localhost:3306/api/register', {
       name,
       email,
       password,
@@ -31,12 +33,13 @@ const handleRegisterSubmit = (e) => {
   
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/login', {
+    axios.post('http://localhost:3306/api/login', {
       email: loginEmail,
       password: loginPassword,
     })
     .then((response) => {
       console.log(response.data);
+      setIsLoggedIn(true);
       // Reset the form inputs after successful login
       setLoginEmail('');
       setLoginPassword('');
@@ -46,6 +49,10 @@ const handleRegisterSubmit = (e) => {
     });
   }
   
+  if (isLoggedIn) {
+    return <UploadImage />;
+  }
+
   return (
     <div className={`container ${addclass}`} id="container">
       <div className="form-container  sign-up-container">
@@ -54,7 +61,7 @@ const handleRegisterSubmit = (e) => {
           <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} />
           <input type="email" placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} />
           <input type="password" placeholder="PASSWORD" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button type="submit">REGISTER</button>
+          <button type="submit" onClick={() => setaddclass("")}>REGISTER</button>
         </form>
       </div>
       <div className="form-container sign-in-container">

@@ -3,29 +3,18 @@ import home from './Images/home.png';
 import './App.css';
 import React, { useState } from 'react';
 import LoginRegister from './Components/LoginRegister';
-import UploadImage from './Components/UploadImage';
-import DiseaseDetails from './Components/DiseaseDetails';
-import Doctor from './Components/Doctor';
 import Services from './Components/Services';
 
 function App() {
+  const [showHome, setShowHome] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [showUpload, setShowUpload] = useState(false);
-  const [showDisease, setShowDisease] = useState(false);
-  const [showDoctor, setShowDoctor] = useState(false);
   const [showServices, setShowServices] = useState(false);
 
+  const toggleHome = () => {
+    setShowHome(!showHome);
+  };
   const toggleLogin = () => {
     setShowLogin(!showLogin);
-  };
-  const toggleUpload = () => {
-    setShowUpload(!showUpload);
-  };
-  const toggleDisease = () => {
-    setShowDisease(!showDisease);
-  };
-  const toggleDoctor = () => {
-    setShowDoctor(!showDoctor);
   };
   const toggleServices = () => {
     setShowServices(!showServices);
@@ -38,7 +27,7 @@ function App() {
         <nav className="header-nav">
           <ul className="header-nav-list">
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link">HOME</a>
+              <a href="#" className="header-nav-link" onClick={toggleHome}>HOME</a>
             </li>
             <li className="header-nav-item">
               <a href="#" className="header-nav-link">ABOUT US</a>
@@ -56,19 +45,13 @@ function App() {
         </button>
       </header>
       <main className="main">
-        {!showLogin && !showUpload && !showDisease && !showDoctor && !showServices && (
+        {!showLogin && !showServices && (
           <>
             <div className='right-cont'>
               <h1 className='header-title'> ScalpCare </h1>
               <h4 className='head-text2'>HAIR AND SCALP DISEASE IDENTIFIER </h4>
-              <button className="right-cont.detect-button" onClick={toggleUpload}>
+              <button className="right-cont.detect-button" onClick={toggleLogin}>
                 Get Started
-              </button>
-              <button className="right-cont.detect-button" onClick={toggleDisease}>
-                Disease
-              </button>
-              <button className="right-cont.detect-button" onClick={toggleDoctor}>
-                Doctor Details
               </button>
             </div>
             <div className='left-cont'>
@@ -77,24 +60,14 @@ function App() {
           </>
         )}
       </main>
+      {showHome && (
+        <div className="login-wrapper">
+          <App />
+        </div>
+      )}
       {showLogin && (
         <div className="login-wrapper">
           <LoginRegister />
-        </div>
-      )}
-      {showUpload && (
-        <div className="login-wrapper">
-          <UploadImage />
-        </div>
-      )}
-      {showDisease && (
-        <div className="login-wrapper">
-          <DiseaseDetails />
-        </div>
-      )}
-      {showDoctor && (
-        <div className="login-wrapper">
-          <Doctor />
         </div>
       )}
       {showServices && (

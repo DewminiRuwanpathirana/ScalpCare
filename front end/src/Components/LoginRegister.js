@@ -69,6 +69,7 @@ const LoginRegister = () => {
           <h1>Login</h1>
           <input type="email" placeholder="EMAIL" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
           <input type="password" placeholder="PASSWORD" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
+          <h4><u>forgot password?</u></h4>
           <button type="submit">LOGIN</button>
         </form>
       </div>

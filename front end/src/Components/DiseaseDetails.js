@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import "./DiseaseDetails.css"; 
+import Doctor from './Doctor';
 
-function Disease() {
+ const DiseaseDetails = () => {
+  //const [selectedDisease, setSelectedDisease] = useState(null);
+  const [doctorDetailsClicked, setDoctorDetailsClicked] = useState(false);
 
-  const [selectedDisease, setSelectedDisease] = useState(null);
+  const handleDoctorDetailsClick = () => {
+    setDoctorDetailsClicked(true);
+  };
+
+  // const handleDiseaseSelect = () => {
+  //   setSelectedDisease(diseases[1]);
+  // };
+
+  // const handleFileSelect = (event) => {  
+  //   setSelectedFile(event.target.files[0]);
+  //   setPrediction(null);
+  // };
+  
   
   const diseases = [
     {
@@ -103,38 +118,57 @@ function Disease() {
   //   setSelectedDisease(diseases[diseaseIndex]);
   // };
 
-  const handleDiseaseSelect = () => {
-    setSelectedDisease(diseases[1]);
-  };
+  // const handleDiseaseSelect = () => {
+  //   setSelectedDisease(diseases[1]);
+  // };
+
+  //return (
+    
+      {/* <button onClick={handleDiseaseSelect} className="ghost">
+        '''Successfully Predicted the Disease 
+        Click Here to view details!!'''
+       </button> */}
+
+
+// function Disease() { 
+//   const [showDoctor, setShowDoctor] = useState(false);
+
+//   const toggleDoctor = () => {
+//     setShowDoctor(!showDoctor);
+//   };
+//   const [prediction] = useState(null);
+
+//   {prediction !== null ? (
+//     <p className="prediction-text">Prediction: {prediction}</p>
+//   ) : <> </>}
+  
 
   return (
     <div>
-      <button onClick={handleDiseaseSelect} className="ghost">
-        '''Successfully Predicted the Disease 
-        Click Here to view details!!'''
-       </button>
-    {/* { <div className="disease-list">
-      {diseases.map((disease, index) => (
-        <div key={index} className="disease" onClick={() => handleDiseaseSelect(index)}>
-          <h2>{disease.name}</h2>
-          <p>{disease.description}</p>
-        </div>
-      ))}
-    </div> } */}
-    {selectedDisease &&   (
+    {doctorDetailsClicked ? (
+      <Doctor />
+    ) : (
       <div className="details">
-        <div className="image-card1"><img src={selectedDisease.image1} alt="image1" /></div>
-        <div className="image-card2"><img src={selectedDisease.image2} alt="image2" /></div>
-        <div className="image-card3"><img src={selectedDisease.image3} alt="image3" /></div>
-        <div className="image-card4"><img src={selectedDisease.image4} alt="image4" /></div>
-        <div className="details-card1"><h2>{selectedDisease.name}</h2></div>
-        <div className="details-card2"><p>{selectedDisease.description}</p></div>
-        <div className="details-card3"><p>{selectedDisease.selfTreatment}</p></div>
-      </div>
-    )}
-  </div>
-    
-  );
-}
+        <div className="image-card1"><img src={diseases.image1} alt="image1" /></div>
+        <div className="image-card2"><img src={diseases.image2} alt="image2" /></div>
+        <div className="image-card3"><img src={diseases.image3} alt="image3" /></div>
+        <div className="image-card4"><img src={diseases.image4} alt="image4" /></div>
+        <div className="details-card1"><h2>{diseases.name}</h2></div>
+        <div className="details-card2"><p>{diseases.description}</p></div>
+        <div className="details-card3"><p>{diseases.selfTreatment}</p></div>
+        <button onClick={handleDoctorDetailsClick}>View Doctor Details</button>
+       </div>
+        )} 
+        </div>)
+ }
+export default DiseaseDetails;
 
-export default Disease;
+
+
+
+
+
+
+
+
+

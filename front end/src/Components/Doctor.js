@@ -83,15 +83,6 @@ const doctors = [
     hospital: 'Ceymed Healthcare Services (Pvt) Ltd - Nugegoda.',
     district: 'Colombo'
   },
-  {
-    id: 10,
-    firstName: 'DR.Sanjeewa',
-    lastName: 'Hulangamuwa',
-    mobileNumber: '0117 888 888',
-    email: 'sanjeewahulangamuwa44@gmail.com',
-    hospital: 'Hemas Hospital, Thalawathugoda.',
-    district: 'Colombo'
-  },
    
 ];
 

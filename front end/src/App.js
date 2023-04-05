@@ -4,11 +4,15 @@ import './App.css';
 import React, { useState } from 'react';
 import LoginRegister from './Components/LoginRegister';
 import Services from './Components/Services';
+import AboutUs from './Components/AboutUs';
+import ContactUs from './Components/ContactUs';
 
 function App() {
   const [showHome, setShowHome] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showServices, setShowServices] = useState(false);
+  const [showAboutUs, setShowAboutUs] = useState(false);
+  const [showContactUs, setShowContactUs] = useState(false);
 
   const toggleHome = () => {
     setShowHome(!showHome);
@@ -18,6 +22,12 @@ function App() {
   };
   const toggleServices = () => {
     setShowServices(!showServices);
+  };
+  const toggleAboutUs = () => {
+    setShowAboutUs(!showAboutUs);
+  };
+  const toggleContactUs = () => {
+    setShowContactUs(!showContactUs);
   };
 
   return (
@@ -30,13 +40,13 @@ function App() {
               <a href="#" className="header-nav-link" onClick={toggleHome}>HOME</a>
             </li>
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link">ABOUT US</a>
+              <a href="#" className="header-nav-link" onClick={toggleAboutUs}>ABOUT US</a>
             </li>
             <li className="header-nav-item">
               <a href="#" className="header-nav-link" onClick={toggleServices}>SERVICES</a>
             </li>
             <li className="header-nav-item">
-              <a href="#" className="header-nav-link">CONTACT US</a>
+              <a href="#" className="header-nav-link" onClick={toggleContactUs}>CONTACT US</a>
             </li>
           </ul>
         </nav>
@@ -45,7 +55,7 @@ function App() {
         </button>
       </header>
       <main className="main">
-        {!showLogin && !showServices && (
+        {!showLogin && !showServices && !showAboutUs && !showContactUs &&(
           <>
             <div className='right-cont'>
               <h1 className='header-title'> ScalpCare </h1>
@@ -73,6 +83,16 @@ function App() {
       {showServices && (
         <div className="login-wrapper">
           <Services />
+        </div>
+      )}
+      {showAboutUs && (
+        <div className="login-wrapper">
+          <AboutUs />
+        </div>
+      )}
+      {showContactUs && (
+        <div className="login-wrapper">
+          <ContactUs />
         </div>
       )}
     </div>

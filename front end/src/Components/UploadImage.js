@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import "./UploadImage.css";                   // importing the CSS file.
 import upload from './Images/upload.png';     // import image for upload button
 import axios from 'axios';                    // import axios library for HTTP requests
+import DiseaseDetails from './DiseaseDetails';
 
 // Creating a new function called UploadImage.
-const UploadImage = () => {                  
+const UploadImage = () => {   
+  const [diseaseDetailsClicked, setDiseaseDetailsClicked] = useState(false);
+  const handleDeseaseDetailsClick = () => {
+    setDiseaseDetailsClicked(true);
+  };               
   const [selectedFile, setSelectedFile] = useState(null);   
   const [prediction, setPrediction] = useState(null);
 
@@ -43,6 +48,10 @@ const UploadImage = () => {
   
   
   return (
+    <div>
+    {diseaseDetailsClicked ? (
+      <DiseaseDetails />
+    ) : (
     <div className="card">
       <div className="card-header">
         <h5 className="card-title">Image Upload</h5>
@@ -82,8 +91,10 @@ const UploadImage = () => {
           style={{ display: "none" }}
         />
       </div>
+      <button className="View-disease-details-button" onClick={handleDeseaseDetailsClick}>View Disease Details</button>
     </div>
-  );
-};
+  )
+}
+</div>)}
 
 export default UploadImage;

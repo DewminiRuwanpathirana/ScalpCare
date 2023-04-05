@@ -1,7 +1,7 @@
 import React from "react";
 import './Service.css';
 
-function Serive ()  {
+function Services ()  {
     return (
         <div className="service component__space" id="Services">
             <div className="heading">
@@ -13,21 +13,19 @@ function Serive ()  {
 
             <div className="container">
                 <div className="row">
-
-                    <div className="col__3">
-                         <div className="service__box pointer">
+                      <div className="service__box pointer">
                             <div className="icon">
                             <svg
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >          
                   <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                   <polyline points="2 17 12 22 22 17"></polyline>
                   <polyline points="2 12 12 17 22 12"></polyline>
@@ -36,32 +34,29 @@ function Serive ()  {
                             <div className="service__meta">
                                 <h1 className="service__text">Identifying the disease</h1>
                                 <p className="p service__text p__color">
-                                    A great way to identify your
-                                </p>
-                                <p className="p service__text p__color">
-                                    hair and scalp disease efficiently.
+                                    A great way to identify your hair and scalp disease efficiently.
                                 </p>
                                 <p className="p service__text p__color">
                                     Just have to upload an image of your hair/scalp.
                                 </p>
                             </div>
-                         </div>
-                    </div>
+                         </div>                
 
-                    <div className="col__3">
+                    
                          <div className="service__box pointer">
                             <div className="icon">
                             <svg
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                  
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                   <circle cx="9" cy="7" r="4"></circle>
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -71,19 +66,16 @@ function Serive ()  {
                             <div className="service__meta">
                                 <h1 className="service__text">Recommending dermatologists</h1>
                                 <p className="p service__text p__color">
-                                  If you prefer to get in touch with a dermatologist
+                                  If you prefer to get in touch with a dermatologist the application is able to recommend dermatologists to you.
                                 </p>
                                 <p className="p service__text p__color">
-                                  the application is able to recommend dermatologists to you.
-                                </p>
-                                <p className="p service__text p__color">
-                                  Provide well known dermatologists around hospitals in Srilanka.
+                                  Provides well known dermatologists around hospitals in Srilanka.
                                 </p>
                             </div>
                          </div>
-                    </div>
+                    
 
-                    <div className="col__3">
+                 
                          <div className="service__box pointer">
                             <div className="icon">
                             <svg
@@ -105,22 +97,17 @@ function Serive ()  {
                             <div className="service__meta">
                                 <h1 className="service__text">Providing self treatment methods</h1>
                                 <p className="p service__text p__color">
-                                   This application provides self treatment methods
-                                </p>
-                                <p className="p service__text p__color">
-                                   for your hair and scalp diseases within a short period of time.
+                                   This application provides self treatment methods for your hair and scalp diseases within a short period of time.
                                 </p>
                                 <p className="p service__text p__color">
                                     Save your money and time.
                                 </p>
                             </div>
                          </div>
-                    </div>
-                  
                 </div>
             </div>
         </div>
     )
 }
 
-export default Serive;
+export default Services;

@@ -1,11 +1,11 @@
 from PIL import Image
-from flask import Flask, request, jsonify
+from flask import request, jsonify
 from keras.models import load_model
 import tensorflow as tf
-import io
 from flask import Flask
 from flask_cors import CORS
 import numpy as np
+from keras.utils import image_utils
 
 app = Flask(__name__)
 
@@ -32,12 +32,15 @@ def predict():
 
     image = Image.open(image_data)
     image = image.resize((224, 224))
+    interpolation = "bilinear"
+    interpolation = image_utils.get_interpolation(interpolation)
+    image = tf.image.resize(image, (224, 224), method=interpolation)
     image = tf.keras.preprocessing.image.img_to_array(image)
     image = np.expand_dims(image, axis=0)
-    # image = image.convert('RGB')
+    image = image.astype('float32')  # Convert to float32
+    image /= 255
 
     # Make a prediction using the model
-    # prediction = model.predict(image)
     prediction = model.predict(image)
     print(prediction)
     prediction = np.argmax(prediction)

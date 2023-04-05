@@ -1,9 +1,9 @@
 //Services Page//
 import React, { useState } from 'react';
 import './Services.css';
-import Project1 from './images/identify_disease.jpg';
-import Project2 from './images/self_treatment.jpg';
-import Project3 from './images/dermatologist.jpg';
+import Project1 from './Images/identify_disease.jpg';
+import Project2 from './Images/self_treatment.jpg';
+import Project3 from './Images/dermatologist.jpg';
 
 function Project () {
     return (

@@ -4,17 +4,17 @@ const mysql = require('mysql');
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3306;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Create a MySQL connection
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'scalpcare',
+  host: 'sql12.freesqldatabase.com',
+  user: 'sql12611270',
+  password: 'fmIaCbpmuY',
+  database: 'sql12611270',
 });
 
 connection.connect((err) => {
@@ -35,7 +35,7 @@ app.post('/api/register', (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");  
   const { name, email, password } = req.body;
   connection.query(
-    'INSERT INTO databasesc (name, email, password) VALUES (?, ?, ?)',
+    'INSERT INTO ScalpCare (Name, Email, Password) VALUES (?, ?, ?)',
     [name, email, password],
   );
 });
@@ -45,7 +45,7 @@ app.post('/api/login', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");  
     const { email, password } = req.body;
   connection.query(
-    'SELECT * FROM databasesc WHERE email = ? AND password = ?',
+    'SELECT * FROM ScalpCare WHERE Email = ? AND Password = ?',
     [email, password],
     (err, results) => {
       if (err) {

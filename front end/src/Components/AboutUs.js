@@ -1,9 +1,9 @@
 import React from 'react';
-import student1 from './images/linara.jpg';
-import student2 from './images/kavini2.jpg';
-import student3 from './images/dewmini.jpg';
-import student4 from './images/mehara.jpg';
-import student5 from './images/ishan.jpg';
+import student1 from './Images/linara.jpg';
+import student2 from './Images/kavini2.jpg';
+import student3 from './Images/dewmini.jpg';
+import student4 from './Images/mehara.jpg';
+import student5 from './Images/ishan.jpg';
 import './AboutUs.css';
 
 const AboutUs = () => {

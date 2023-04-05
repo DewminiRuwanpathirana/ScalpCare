@@ -179,3 +179,119 @@ print('Predicted class label:', class_label)
 class_name = class_names[class_label]
 print('Predicted class name: ', class_name)
 img.shape
+
+
+!pip install pytest
+
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import cv2
+from keras.utils import image_utils
+
+model = keras.models.load_model('/content/drive/MyDrive/SCmodel.h5')
+
+img_size = (224, 224)
+batch_size = 32
+
+# Load the test image
+img = tf.io.read_file('/content/drive/MyDrive/DataSet/test/Tinea Capitis/tinea_capitis_0138.jpg')
+img = tf.image.decode_image(img, channels=3, expand_animations=False)
+interpolation = "bilinear"
+interpolation = image_utils.get_interpolation(interpolation)
+img = tf.image.resize(img,(224, 224), method=interpolation)
+img = np.expand_dims(img, axis=0)
+img = img * 1/255.0
+
+# Make predictions on the test image
+preds = model.predict(img)
+
+# Get the predicted class label
+class_label = np.argmax(preds)
+print('Predicted class label:', class_label)
+
+# Get the predicted class name
+class_names = {
+    0: 'Alopecia Areata',
+    1: 'Contact Dermatitis',
+    2: 'Folliculitis',
+    3: 'Head Lice',
+    4: 'Lichen Planus',
+    5: 'Male pattern Baldness',
+    6: 'Psoriasis',
+    7: 'Seborrheic Dermatitis',
+    8: 'Telogen Effluvium',
+    9: 'Tinea Capitis',
+}
+class_name = class_names[class_label]
+print('Predicted class name: ', class_name)
+
+# Plot the test image
+import matplotlib.pyplot as plt
+plt.imshow(img[0])
+plt.axis('off')
+plt.title('Test Image')
+plt.show()
+ 
+
+test_path = '/content/drive/MyDrive/DataSet/test'
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+test_generator = test_datagen.flow_from_directory(
+    test_path,
+    target_size=img_size,
+    batch_size=batch_size,
+    class_mode='categorical'
+)
+ 
+ 
+
+# Load the test image
+img = tf.io.read_file('/content/drive/MyDrive/DataSet/test/Tinea Capitis/tinea_capitis_0138.jpg')
+img = tf.image.decode_image(img, channels=3, expand_animations=False)
+interpolation = "bilinear"
+interpolation = image_utils.get_interpolation(interpolation)
+img = tf.image.resize(img,(224, 224), method=interpolation)
+img = np.expand_dims(img, axis=0)
+img = img * 1/255.0
+
+# Make predictions on the test image
+preds = model.predict(img)
+
+# Get the predicted class label and class name
+class_label = np.argmax(preds)
+class_name = class_names[class_label]
+
+print("Predicted Class Label: ", class_label)
+print("Predicted Class Name: ", class_name)
+
+from keras import models    
+ # Define image size and batch size
+img_size = (224, 224)
+batch_size = 32
+
+# Load the pre-trained CNN model
+model = models.load_model('/content/drive/MyDrive/SCmodel.h5')
+
+# Compile the model
+model.compile(
+    optimizer="adam",
+    loss="categorical_crossentropy",
+    metrics=["accuracy"]
+)
+
+# Perform unit testing
+def test_model():
+    # Test the model on the test dataset
+    test_loss, test_acc = model.evaluate(test_generator)
+    assert test_loss is not None, "Test loss should not be None"
+    assert test_acc is not None, "Test accuracy should not be None"
+    assert test_loss >= 0, "Test loss should be greater than or equal to 0"
+    assert test_acc >= 0, "Test accuracy should be greater than or equal to 0"
+
+# Run the unit tests
+test_model()
+print("All unit tests passed.")

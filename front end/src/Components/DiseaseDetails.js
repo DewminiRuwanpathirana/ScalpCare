@@ -153,13 +153,13 @@ import Doctor from './Doctor';
     ) : (
    {selectedDisease &&   (
       <div className="details">
-        <div className="image-card1"><img src={selectedDisease.image1} alt="image1" /></div>
+        <div className="image-card1"><img id="bigImage" src={selectedDisease.image1} alt="image1" /></div>
         <div className="image-card2"><img src={selectedDisease.image2} alt="image2" /></div>
         <div className="image-card3"><img src={selectedDisease.image3} alt="image3" /></div>
         <div className="image-card4"><img src={selectedDisease.image4} alt="image4" /></div>
-        <div className="details-card1"><h2>{selectedDisease.name}</h2></div>
-        <div className="details-card2"><p>{selectedDisease.description}</p></div>
-        <div className="details-card3"><p>{selectedDisease.selfTreatment}</p></div>
+        <div className="details-card1"><center><h1>{selectedDisease.name}</h1></center></div>
+        <div className="details-card2"><h4>{selectedDisease.description}</h4></div>
+        <div className="details-card3"><p><h2>self Treatment Methods</h2></p><h4>{selectedDisease.selfTreatment}</h4></div>
         <button onClick={handleDoctorDetailsClick}>View Doctor Details</button>
        </div>
         ))} 

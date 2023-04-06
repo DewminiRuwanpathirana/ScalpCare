@@ -64,7 +64,7 @@
   
   .prediction-text{
     text-align: center;
-    margin-top: 25px;
+    margin-top: 20px;
     font-size: 2rem;
   }
   .details-button{
@@ -73,7 +73,7 @@
 
   .View-disease-details-button{
     display: block;
-    margin: 200px;
+    margin: 250px;
   }
 
 

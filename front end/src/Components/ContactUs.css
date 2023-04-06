@@ -7,17 +7,19 @@
   
   .contact-h1 {
     margin-bottom: 20px;
+    font-family: The Seasons;
   }
 
   .contact-h2 {
     margin-bottom: 10px;
-    color:#7b512e;
+    font-family: The Seasons;
   }
 
   .contact-para{
     margin-top: 30px;
     margin-bottom: 10px;
     font-size: 15px;
+    font-family: The Seasons;
   }
   
   .contact-form {
@@ -26,6 +28,8 @@
     align-items: center;
     width: 50%;
     margin-top: 40px;
+    border-radius: 20px;
+    background-color: #fff3eb;
   }
   
   label {
@@ -38,7 +42,7 @@
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #020202;
+    border: 1px solid #ffffff;
   }
   
   .conbutton {
@@ -58,9 +62,9 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    width: 100%;
+    width: 2000px;
     position: fixed;
-    bottom: 0;
+    bottom: -65px;
   }
   
   .footer p {

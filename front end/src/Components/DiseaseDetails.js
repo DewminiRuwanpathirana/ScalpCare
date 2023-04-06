@@ -156,7 +156,7 @@ import Doctor from './Doctor';
         <div className="details-card1"><h2>{diseases.name}</h2></div>
         <div className="details-card2"><p>{diseases.description}</p></div>
         <div className="details-card3"><p>{diseases.selfTreatment}</p></div>
-        <button onClick={handleDoctorDetailsClick}>View Doctor Details</button>
+        <button className="doc-dets-button" onClick={handleDoctorDetailsClick}>View Doctor Details</button>
        </div>
         )} 
         </div>)

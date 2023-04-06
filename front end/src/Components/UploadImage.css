@@ -36,8 +36,9 @@
     
   .upload-image-button {
     display: block;
-    align-self: center;
     margin-top: 100px;
+    margin: 250px;
+    width: 250px;
     }
     
 
@@ -53,8 +54,9 @@
   .upload-image{
     opacity: 20%;
     position: fixed;
-    margin-left: -15px;
+    margin-left: 15px;
     margin-top: -25px;
+    
   }
 
   .predict-button {

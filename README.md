@@ -9,9 +9,8 @@ Frontend screenshot;
 ![servicepage](https://github.com/DewminiRuwanpathirana/ScalpCare/blob/main/front%20end/src/Images/frontend5.png)
 
 
-Name 	                    UOW ID 	    IIT ID
-Linara Yalindi Wataraka 	w1898948  	20211343 
-Mehara Nethmi Weeratunga  	w1914620 	20210301 
-Dewmini Nirasha Ruwanpathirana 	w1898925  	20211282  
-Kavini Pamodya Geethasinghe 	w1867661 	20210545  
-Ishan Akmal Samsudeen 	w1898937  	20211320 
+Linara Yalindi Wataraka - w1898948/20211343
+Mehara Nethmi Weeratunga - w1914620/20210301
+Dewmini Nirasha Ruwanpathirana - w1898925/20211282  
+Kavini Pamodya Geethasinghe - w1867661/20210545  
+Ishan Akmal Samsudeen - w1898937/20211320 

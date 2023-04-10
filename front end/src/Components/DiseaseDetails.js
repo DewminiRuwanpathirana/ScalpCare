@@ -153,9 +153,7 @@ import Doctor from './Doctor';
     ) : (
    {selectedDisease &&   (
       <div className="details">
-               ))} 
-        </div>)
- }
+
 export default DiseaseDetails;
 
 
